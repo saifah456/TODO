@@ -18,15 +18,17 @@ export default function TodoHome() {
   ]);
   return (
     <>
+    <div className="d-flex justify-content-center align-items-center flex-column  vh-100 ">
       <h2>Amazing Todo List!!</h2>
       <TodoAdd updateTodo={setTodo} generateUniqueId={generateUniqueId} />
       {todo.length !== 0 ? todo.map((data) => (
         <li key={data.id}>
           {data.id} :{data.title}
           <TodoDelete itemid={data.id} updateTodo={setTodo} />
-          {/* <TodoEdit itemid={data.id} updateTodo={setTodo.todo}/> */}
+          <TodoEdit itemid={data.id} itemtitle={data.title} updateTodo={setTodo}/>
         </li>
       )) : <h2>Todo list is empty</h2>}
+      </div>
     </>
   );
 }
